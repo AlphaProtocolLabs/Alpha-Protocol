@@ -13,7 +13,7 @@ const Header = () => {
       <img className="logo" alt="XMTP Logo" src={xmtpLogo} />
       {walletAddress ? (
         <div className="flex align-center header-mobile">
-          <h3>{shortAddress(walletAddress)}</h3>
+          <button>{shortAddress(walletAddress)}</button>
           {!providerState.client && (
             <button
               className="btn"
