@@ -19,7 +19,7 @@ const Header = () => {
               className="btn"
               onClick={() => providerState.initClient(signer)}
             >
-              Connect to XMTP
+              Connect to ALPHA
             </button>
           )}
         </div>
