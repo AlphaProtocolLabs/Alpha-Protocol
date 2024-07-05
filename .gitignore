@@ -1,60 +1,43 @@
-# Mac OS
-.DS_Store
-.DS_Store?
-.AppleDouble
-.LSOverride
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-
-# Windows
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-
-# Linux
-*~
-.fuse_hidden*
-.directory
-.Trash-*
-.nfs*
-
-# IDE
-nbproject
-.~lock.*
-.buildpath
-.idea
-.project
-.settings
-composer.lock
-*.sublime-workspace
-*.swp
-*.swo
-.projectile
-.vscode
-.history
-*.vsix
-*.tmproj
-*.tmproject
-tmtags
-
-# Node
-node_modules
-npm-debug.log*
-logs
+# Miscellaneous
+*.class
 *.log
-coverage
-*.lcov
-*.tsbuildinfo
-.npm
-.eslintcache
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
 
-# Build artifacts
-dist/
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
 
-# Environment
-.env*
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
