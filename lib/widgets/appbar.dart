@@ -45,29 +45,28 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 ? Colors.white
                                 : Colors.black))),
                 TextButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/develop'),
+                    onPressed: () => Navigator.pushNamed(context, '/develop'),
                     child: Text("Develop",
                         style: TextStyle(
                             color: themeManager.isDarkMode
                                 ? Colors.white
                                 : Colors.black))),
-                TextButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/network'),
-                    child: Text("Network",
-                        style: TextStyle(
-                            color: themeManager.isDarkMode
-                                ? Colors.white
-                                : Colors.black))),
-                TextButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/explore'),
-                    child: Text("Explore",
-                        style: TextStyle(
-                            color: themeManager.isDarkMode
-                                ? Colors.white
-                                : Colors.black))),
+                // TextButton(
+                //     onPressed: () =>
+                //         Navigator.pushNamed(context, '/network'),
+                //     child: Text("Network",
+                //         style: TextStyle(
+                //             color: themeManager.isDarkMode
+                //                 ? Colors.white
+                //                 : Colors.black))),
+                // TextButton(
+                //     onPressed: () =>
+                //         Navigator.pushNamed(context, '/explore'),
+                //     child: Text("Explore",
+                //         style: TextStyle(
+                //             color: themeManager.isDarkMode
+                //                 ? Colors.white
+                //                 : Colors.black))),
                 // TextButton(
                 //     onPressed: () =>
                 //         Navigator.pushNamed(context, '/contactUsPage'),

@@ -1,5 +1,9 @@
+import 'package:alpha/widgets/fix_together.dart';
+import 'package:alpha/widgets/internet_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:alpha/widgets/drawer.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 import '../widgets/appbar.dart';
 import '../widgets/footer.dart';
 
@@ -19,35 +23,16 @@ class Information extends StatelessWidget {
       drawer: const CustomDrawer(),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: constraints.maxHeight,
-              ),
-              child: IntrinsicHeight(
-                child: Column(
-                  children: <Widget>[
-                    Expanded(
-                      child: Column(
-                        // Main content goes here
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text('LEARN', style: TextStyle(fontSize: 24)),
-                          ),
-                          // Add more content here as needed
-                        ],
-                      ),
-                    ),
-                    const Footer(), // Footer will be pushed to the bottom
-                  ],
-                ),
-              ),
-            ),
+          return PageView(
+            children: [
+              InternetBrokenWidget(),
+              FixTogetherWidget(),
+            ],
+            scrollDirection: Axis.vertical,
           );
         },
       ),
+      bottomNavigationBar: const Footer(),
     );
   }
 }
-

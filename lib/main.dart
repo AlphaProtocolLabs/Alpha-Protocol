@@ -6,8 +6,7 @@ import 'pages/information.dart';
 import 'pages/develop.dart';
 import 'pages/network.dart';
 import 'pages/explore.dart';
-//import 'pages/contact.dart';
-//import 'pages/careers.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,22 +20,24 @@ class MyApp extends StatelessWidget {
     return ListenableBuilder(
       listenable: themeManager,
       builder: (BuildContext context, Widget? child) {
-        return MaterialApp(
-          title: 'Powerclub Global',
-          theme: MyAppThemes.lightTheme,
-          darkTheme: MyAppThemes.darkTheme,
-          themeMode: themeManager.themeMode,
-          debugShowCheckedModeBanner: false,
-          routes: {
-            '/': (context) => Home(),
-            '/information': (context) => Information(),
-            '/develop': (context) => Develop(),
-            '/network': (context) => Network(),
-            '/explore': (context) => Explore(),
-            //'/contactUsPage': (context) => const ContactUsPage(),
-            //'/careersPage': (context) => CareersPage(),
-          },
-        );
+        return Sizer(builder: (context, orientation, deviceType) {
+          return MaterialApp(
+            title: 'Powerclub Global',
+            theme: MyAppThemes.lightTheme,
+            darkTheme: MyAppThemes.darkTheme,
+            themeMode: themeManager.themeMode,
+            debugShowCheckedModeBanner: false,
+            routes: {
+              '/': (context) => Home(),
+              '/information': (context) => Information(),
+              '/develop': (context) => Develop(),
+              '/network': (context) => Network(),
+              '/explore': (context) => Explore(),
+              //'/contactUsPage': (context) => const ContactUsPage(),
+              //'/careersPage': (context) => CareersPage(),
+            },
+          );
+        });
       },
     );
   }
