@@ -80,7 +80,7 @@ class FixTogetherWidget extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
                 child: Image.asset(
-                  "learn_5.png",
+                  "assets/learn_5.png",
                 ),
               ),
               Text(
