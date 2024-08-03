@@ -27,7 +27,7 @@ class FixTogetherWidget extends StatelessWidget {
                 padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
                 child: Image(
                   image: AssetImage(
-                    "learn_1.png",
+                    "assets/learn_1.png",
                   ),
                 ),
               ),
@@ -47,7 +47,7 @@ class FixTogetherWidget extends StatelessWidget {
                 padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
                 child: Image(
                   image: AssetImage(
-                    "learn_2.png",
+                    "assets/learn_2.png",
                   ),
                 ),
               ),
@@ -61,7 +61,7 @@ class FixTogetherWidget extends StatelessWidget {
                 padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
                 child: Image(
                   image: AssetImage(
-                    "learn_3.png",
+                    "assets/learn_3.png",
                   ),
                 ),
               ),
