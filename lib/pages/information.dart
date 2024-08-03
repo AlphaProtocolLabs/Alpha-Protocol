@@ -23,16 +23,17 @@ class Information extends StatelessWidget {
       drawer: const CustomDrawer(),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          return PageView(
-            children: [
-              InternetBrokenWidget(),
-              FixTogetherWidget(),
-            ],
-            scrollDirection: Axis.vertical,
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                InternetBrokenWidget(),
+                FixTogetherWidget(),
+                const Footer(),
+              ],
+            ),
           );
         },
       ),
-      bottomNavigationBar: const Footer(),
     );
   }
 }

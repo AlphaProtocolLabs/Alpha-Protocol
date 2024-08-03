@@ -10,6 +10,7 @@ class InternetBrokenWidget extends StatelessWidget {
     return Center(
       child: SizedBox(
         width: double.infinity,
+        height: 100.h,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           // Main content goes here
@@ -19,7 +20,7 @@ class InternetBrokenWidget extends StatelessWidget {
               child: Text(
                 'THE INTERNET IS BROKEN',
                 style: GoogleFonts.cinzel(
-                    fontWeight: FontWeight.w900, fontSize: 12.sp),
+                    fontWeight: FontWeight.w900, fontSize: 11.sp),
               ),
             ),
             Padding(
@@ -27,7 +28,7 @@ class InternetBrokenWidget extends StatelessWidget {
               child: Text(
                 "TODAY THE WORLD WIDE WEB IS\nCONTROLLED BY AN EXTREMELY\nCONCENTRATED GROUP OF\nCORPORATIONS WHO USE THEIR\nMONOPOLIZATION OF ACCESS TO\nSENSOR, SERVILE, AND PROFIT FROM\nTHE INDIVIDUALS WHO USE IT.",
                 style: GoogleFonts.cinzel(
-                    fontWeight: FontWeight.w400, fontSize: 8.sp),
+                    fontWeight: FontWeight.w400, fontSize: 7.sp),
                 textAlign: TextAlign.center,
               ),
             ),

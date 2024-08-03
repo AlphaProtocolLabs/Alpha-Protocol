@@ -25,8 +25,10 @@ class FixTogetherWidget extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image.asset(
-                  "learn_1.png",
+                child: Image(
+                  image: AssetImage(
+                    "learn_1.png",
+                  ),
                 ),
               ),
               Text(
@@ -43,8 +45,10 @@ class FixTogetherWidget extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image.asset(
-                  "learn_2.png",
+                child: Image(
+                  image: AssetImage(
+                    "learn_2.png",
+                  ),
                 ),
               ),
               Text(
@@ -55,8 +59,10 @@ class FixTogetherWidget extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image.asset(
-                  "learn_3.png",
+                child: Image(
+                  image: AssetImage(
+                    "learn_3.png",
+                  ),
                 ),
               ),
               Text(
@@ -66,11 +72,12 @@ class FixTogetherWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               Padding(
-                padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image.asset(
-                  "learn_4.png",
-                ),
-              ),
+                  padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
+                  child: Image(
+                    image: AssetImage(
+                      "assets/learn_4.png",
+                    ),
+                  )),
               Text(
                 "LOCALIZED MICROGRIDS\nPRIVATE AND PUBLIC USE NETWORKS",
                 style: GoogleFonts.cinzel(
@@ -79,8 +86,10 @@ class FixTogetherWidget extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image.asset(
-                  "assets/learn_5.png",
+                child: Image(
+                  image: AssetImage(
+                    "assets/learn_5.png",
+                  ),
                 ),
               ),
               Text(
