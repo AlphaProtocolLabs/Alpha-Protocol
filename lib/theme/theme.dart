@@ -5,7 +5,7 @@ class MyAppThemes {
     scaffoldBackgroundColor: Colors.white,
     brightness: Brightness.light,
     fontFamily: 'Cinzel',
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
       elevation: 0,
       iconTheme: IconThemeData(color: Colors.black),
@@ -16,7 +16,7 @@ class MyAppThemes {
     scaffoldBackgroundColor: Colors.black,
     brightness: Brightness.dark,
     fontFamily: 'Cinzel',
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.black,
       elevation: 0,
       iconTheme: IconThemeData(color: Colors.white),

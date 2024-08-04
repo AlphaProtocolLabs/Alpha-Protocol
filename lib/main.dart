@@ -1,3 +1,6 @@
+import 'package:alpha/pages/alpha_go/screen/alpha_go.dart';
+import 'package:alpha/pages/omega_wireless/screen/omega_wireless.dart';
+import 'package:alpha/pages/spectrum/screen/spectrum.dart';
 import 'package:flutter/material.dart';
 import 'package:alpha/theme/theme.dart';
 import 'package:alpha/theme/theme_manager.dart';
@@ -8,8 +11,10 @@ import 'pages/develop/screen/develop.dart';
 import 'pages/network.dart';
 import 'pages/explore.dart';
 import 'package:sizer/sizer.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(const MyApp());
 }
 
@@ -49,6 +54,27 @@ class MyApp extends StatelessWidget {
       case '/explore':
         return PageTransition(
           child: Explore(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
+      case '/AlphaGo':
+        return PageTransition(
+          child: AlphaGoScreen(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
+      case '/OmegaWireless':
+        return PageTransition(
+          child: OmegaWirelessScreen(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
+      case '/Spectrum':
+        return PageTransition(
+          child: SpectrumScreen(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
