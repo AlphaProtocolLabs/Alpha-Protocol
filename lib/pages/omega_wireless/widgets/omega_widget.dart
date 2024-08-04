@@ -33,8 +33,8 @@ class _OmegaWidgetState extends State<OmegaWidget> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(),
-              Spacer(),
+              const SizedBox(),
+              const Spacer(),
               SizedBox(
                   height: 40.h,
                   width: double.infinity,
@@ -50,7 +50,7 @@ class _OmegaWidgetState extends State<OmegaWidget> {
                     fontWeight: FontWeight.w400, fontSize: 5.sp),
                 textAlign: TextAlign.center,
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 "THE END OF ALL SECURITY",
                 style: GoogleFonts.cinzel(

@@ -33,8 +33,8 @@ class _SpectrumWidgetState extends State<SpectrumWidget> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(),
-              Spacer(),
+              const SizedBox(),
+              const Spacer(),
               SizedBox(
                   height: 40.h,
                   width: double.infinity,
@@ -50,7 +50,7 @@ class _SpectrumWidgetState extends State<SpectrumWidget> {
                     fontWeight: FontWeight.w400, fontSize: 5.sp),
                 textAlign: TextAlign.center,
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 "ALL FOR ONE AND ONE FOR ALL",
                 style: GoogleFonts.cinzel(

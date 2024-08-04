@@ -16,6 +16,7 @@ dependencies:
   google_fonts:
   page_transition:
 
+  flutter_web_plugins: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

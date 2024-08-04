@@ -23,7 +23,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     themeManager.addListener(_themeChanged);
   }
@@ -78,7 +77,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     },
                     constraints:
                         BoxConstraints(maxWidth: 10.w, maxHeight: 12.sp),
-                    icon: Image(
+                    icon: const Image(
                       image: AssetImage('assets/alpha_go_icon.png'),
                       fit: BoxFit.contain,
                     )),
@@ -88,7 +87,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     },
                     constraints:
                         BoxConstraints(maxWidth: 10.w, maxHeight: 12.sp),
-                    icon: Image(
+                    icon: const Image(
                       image: AssetImage('assets/omega_wireless_icon.png'),
                     )),
                 IconButton(
@@ -97,7 +96,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     },
                     constraints:
                         BoxConstraints(maxWidth: 10.w, maxHeight: 12.sp),
-                    icon: Image(
+                    icon: const Image(
                       image: AssetImage('assets/spectrum_icon.png'),
                     )),
                 // TextButton(

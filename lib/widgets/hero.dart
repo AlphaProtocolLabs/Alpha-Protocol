@@ -2,7 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:alpha/theme/theme_manager.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 
 class HeroWidget extends StatefulWidget {
   const HeroWidget({
@@ -25,20 +26,8 @@ class _HeroWidgetState extends State<HeroWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     themeManager.addListener(_themeChanged);
-  }
-
-  Future<void> _openWebsiteInWebView(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url),
-          mode: LaunchMode.inAppWebView,
-          webViewConfiguration:
-              const WebViewConfiguration(enableJavaScript: true));
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 
   @override
@@ -47,40 +36,99 @@ class _HeroWidgetState extends State<HeroWidget> {
       children: [
         SizedBox(
             height: widget.firstFoldHeight *
-                0.7, // 70% of the first fold height for the hero image
-            child: Image(
-              image: AssetImage(
-                'assets/hero_image${themeManager.isDarkMode ? "_d" : ""}.png',
-              ),
-              fit: BoxFit.cover,
+                0.5, // 70% of the first fold height for the hero image
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "WHERE THE WEB",
+                  style: GoogleFonts.cinzel(
+                      fontWeight: FontWeight.w400, fontSize: 11.sp),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'B E G I N S',
+                  style: GoogleFonts.cinzel(
+                      fontWeight: FontWeight.w800, fontSize: 14.sp),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'ALPHA PROTOCOL IS A\nDECENTRALIZED WEB SOLUTION\nWITH BITCOIN INCENTIVES',
+                  style: GoogleFonts.cinzel(
+                      fontWeight: FontWeight.w400, fontSize: 6.sp),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             )),
-        Container(
-          height: widget.firstFoldHeight *
-              0.3, // 30% of the first fold height for the carousel
-          color: themeManager.isDarkMode ? Colors.black : Colors.white,
-          child: PageView.builder(
-            controller: widget.pageController,
-            itemCount: 10000, // Consider reducing this for practicality
-            itemBuilder: (context, index) {
-              final logoIndex = index % 3;
-              final logoImagePath =
-                  'assets/${(logoIndex + 1)}${themeManager.isDarkMode ? "d" : ""}.png';
-              final urls = [
-                'https://go.alphaprotocol.network',
-                'https://powerclubglobal.com/spectrum',
-                'https://powerclubglobal.com/omegawireless',
-              ];
+        SizedBox(
+            height: 0.2 * widget.firstFoldHeight,
+            child: Center(
+                child: TextButton(
+                    onPressed: () {},
+                    child: Container(
+                      width: 15.w,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.black, width: 2)),
+                      child: Text(
+                        "ENTER",
+                        style: GoogleFonts.cinzel(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 7.sp,
+                            color: Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
+                    )))),
+        Column(
+          children: [
+            Text(
+              'BETA PROJECTS',
+              style: GoogleFonts.cinzel(
+                  fontWeight: FontWeight.w400, fontSize: 6.sp),
+              textAlign: TextAlign.center,
+            ),
+            Container(
+              height: widget.firstFoldHeight *
+                  0.3, // 30% of the first fold height for the carousel
+              color: themeManager.isDarkMode ? Colors.black : Colors.white,
+              child: PageView.builder(
+                controller: widget.pageController,
+                itemCount: 99999, // Consider reducing this for practicality
+                itemBuilder: (context, index) {
+                  List<List<String>> imgPaths = [
+                    [
+                      'assets/alpha_go_icon.png',
+                      'assets/alpha_go_icon_dark.png',
+                    ],
+                    [
+                      'assets/omega_wireless_icon.png',
+                      'assets/omega_wireless_icon_dark.png',
+                    ],
+                    [
+                      'assets/spectrum_icon.png',
+                      'assets/spectrum_icon_dark.png'
+                    ]
+                  ];
+                  List<String> routes = [
+                    '/AlphaGo',
+                    '/OmegaWireless',
+                    '/Spectrum'
+                  ];
 
-              return InkWell(
-                onTap: () async {
-                  if (urls.length > logoIndex) {
-                    await _openWebsiteInWebView(urls[logoIndex]);
-                  }
+                  return InkWell(
+                    onTap: () async {
+                      Navigator.pushNamed(context, routes[index % 3]);
+                    },
+                    child: Image(
+                      image: AssetImage(themeManager.isDarkMode
+                          ? imgPaths[index % 3][1]
+                          : imgPaths[index % 3][0]),
+                    ),
+                  );
                 },
-                child: Image.asset(logoImagePath, width: 100.0),
-              );
-            },
-          ),
+              ),
+            ),
+          ],
         ),
       ],
     );

@@ -60,21 +60,21 @@ class MyApp extends StatelessWidget {
         );
       case '/AlphaGo':
         return PageTransition(
-          child: AlphaGoScreen(),
+          child: const AlphaGoScreen(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
         );
       case '/OmegaWireless':
         return PageTransition(
-          child: OmegaWirelessScreen(),
+          child: const OmegaWirelessScreen(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
         );
       case '/Spectrum':
         return PageTransition(
-          child: SpectrumScreen(),
+          child: const SpectrumScreen(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,

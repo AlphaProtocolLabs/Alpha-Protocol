@@ -42,7 +42,7 @@ class _BetaAccessWidgetState extends State<BetaAccessWidget> {
                         : 'assets/alpha_go_icon.png'),
                     fit: BoxFit.contain,
                   )),
-              Container(
+              SizedBox(
                 width: 40.w,
                 child: Column(
                   children: [
