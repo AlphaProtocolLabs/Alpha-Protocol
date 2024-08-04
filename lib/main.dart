@@ -3,7 +3,7 @@ import 'package:alpha/theme/theme.dart';
 import 'package:alpha/theme/theme_manager.dart';
 import 'package:page_transition/page_transition.dart';
 import 'pages/home.dart';
-import 'pages/information.dart';
+import 'pages/learn/screen/information.dart';
 import 'pages/develop.dart';
 import 'pages/network.dart';
 import 'pages/explore.dart';

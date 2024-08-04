@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class TradeAlpha extends StatelessWidget {
   const TradeAlpha({super.key});
@@ -7,11 +8,9 @@ class TradeAlpha extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isDesktop = MediaQuery.of(context).size.width > 600;
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
 
     // Set different image sizes for mobile and desktop
-    double imageHeight =
-        isDesktop ? screenHeight * 0.4 : screenHeight * 0.3; // Larger on mobile
+    double imageHeight = isDesktop ? 40.h : 30.h; // Larger on mobile
     double imageWidth = imageHeight * 4 / 3; // Maintain 4:3 aspect ratio
 
     // Use a ternary operator to decide between Row (desktop) and Column (mobile)

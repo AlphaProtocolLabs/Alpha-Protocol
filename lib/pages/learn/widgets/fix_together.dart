@@ -1,4 +1,3 @@
-
 import 'package:alpha/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,11 +30,11 @@ class FixTogetherWidget extends StatelessWidget {
                     ? "assets/learn_1_dark.png"
                     : "assets/learn_1.png",
               ),
-              const secondaryHeading(
+              const SecondaryHeading(
                 text:
                     "ENABLING DEVICES TO CONNECT DIRECTLY\nAND EXCHANGE DATA AS PEERS",
               ),
-              const secondaryHeading(
+              const SecondaryHeading(
                 text: "PEER TO PEER NETWORKING",
                 isBold: true,
               ),
@@ -44,7 +43,7 @@ class FixTogetherWidget extends StatelessWidget {
                     ? "assets/learn_2_dark.png"
                     : "assets/learn_2.png",
               ),
-              const secondaryHeading(
+              const SecondaryHeading(
                 text:
                     "EXPAND COVERAGE TO COMMON DEVICE TYPES\nIOS. ANDROID. WINDOWS. MAC OS. LINUX",
               ),
@@ -53,7 +52,7 @@ class FixTogetherWidget extends StatelessWidget {
                     ? "assets/learn_3_dark.png"
                     : "assets/learn_3.png",
               ),
-              const secondaryHeading(
+              const SecondaryHeading(
                 text: "TOKENIZED REWARD\nINCENTIVIZE NETWORK PARTICIPATION",
               ),
               LearnImageWidget(
@@ -61,7 +60,7 @@ class FixTogetherWidget extends StatelessWidget {
                     ? "assets/learn_4_dark.png"
                     : "assets/learn_4.png",
               ),
-              const secondaryHeading(
+              const SecondaryHeading(
                 text: "LOCALIZED MICROGRIDS\nPRIVATE AND PUBLIC USE NETWORKS",
               ),
               LearnImageWidget(
@@ -69,7 +68,7 @@ class FixTogetherWidget extends StatelessWidget {
                     ? "assets/learn_5_dark.png"
                     : "assets/learn_5.png",
               ),
-              const secondaryHeading(
+              const SecondaryHeading(
                 text:
                     "CONNECT LOCALIZED MICROGRIDS\nGLOBAL DECENTRALIZED NETWORK",
               ),
@@ -85,8 +84,8 @@ class FixTogetherWidget extends StatelessWidget {
   }
 }
 
-class secondaryHeading extends StatelessWidget {
-  const secondaryHeading({
+class SecondaryHeading extends StatelessWidget {
+  const SecondaryHeading({
     super.key,
     this.isBold = false,
     required this.text,
