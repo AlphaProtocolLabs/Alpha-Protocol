@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:alpha/theme/theme_manager.dart';
-import 'package:sizer/sizer.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key, required this.scaffoldKey});
@@ -71,50 +70,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
                             color: themeManager.isDarkMode
                                 ? Colors.white
                                 : Colors.black))),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/AlphaGo");
-                    },
-                    constraints:
-                        BoxConstraints(maxWidth: 10.w, maxHeight: 12.sp),
-                    icon: const Image(
-                      image: AssetImage('assets/alpha_go_icon.png'),
-                      fit: BoxFit.contain,
-                    )),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/OmegaWireless");
-                    },
-                    constraints:
-                        BoxConstraints(maxWidth: 10.w, maxHeight: 12.sp),
-                    icon: const Image(
-                      image: AssetImage('assets/omega_wireless_icon.png'),
-                    )),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/Spectrum");
-                    },
-                    constraints:
-                        BoxConstraints(maxWidth: 10.w, maxHeight: 12.sp),
-                    icon: const Image(
-                      image: AssetImage('assets/spectrum_icon.png'),
-                    )),
-                // TextButton(
-                //     onPressed: () =>
-                //         Navigator.pushNamed(context, '/network'),
-                //     child: Text("Network",
-                //         style: TextStyle(
-                //             color: themeManager.isDarkMode
-                //                 ? Colors.white
-                //                 : Colors.black))),
-                // TextButton(
-                //     onPressed: () =>
-                //         Navigator.pushNamed(context, '/explore'),
-                //     child: Text("Explore",
-                //         style: TextStyle(
-                //             color: themeManager.isDarkMode
-                //                 ? Colors.white
-                //                 : Colors.black))),
               ],
             )
           : GestureDetector(

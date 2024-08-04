@@ -5,11 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:alpha/theme/theme.dart';
 import 'package:alpha/theme/theme_manager.dart';
 import 'package:page_transition/page_transition.dart';
-import 'pages/home.dart';
+import 'pages/home/screen/home.dart';
 import 'pages/learn/screen/information.dart';
 import 'pages/develop/screen/develop.dart';
-import 'pages/network.dart';
-import 'pages/explore.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
@@ -40,20 +38,6 @@ class MyApp extends StatelessWidget {
       case '/develop':
         return PageTransition(
           child: Develop(),
-          duration: const Duration(milliseconds: 300),
-          type: PageTransitionType.fade,
-          settings: settings,
-        );
-      case '/network':
-        return PageTransition(
-          child: Network(),
-          duration: const Duration(milliseconds: 300),
-          type: PageTransitionType.fade,
-          settings: settings,
-        );
-      case '/explore':
-        return PageTransition(
-          child: Explore(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,

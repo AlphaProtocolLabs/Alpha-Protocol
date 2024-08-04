@@ -1,8 +1,8 @@
-import 'package:alpha/widgets/tradealpha.dart';
+import 'package:alpha/pages/home/widgets/tradealpha.dart';
 import 'package:flutter/material.dart';
 import 'package:alpha/widgets/drawer.dart';
-import '../widgets/appbar.dart';
-import '../widgets/footer.dart';
+import '../../../widgets/appbar.dart';
+import '../../../widgets/footer.dart';
 import '../widgets/hero.dart';
 import '../widgets/safeguard.dart';
 import '../widgets/snapshot.dart';
