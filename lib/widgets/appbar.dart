@@ -5,9 +5,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
 
   const CustomAppBar({
-    Key? key,
+    super.key,
     required this.scaffoldKey,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,44 +30,45 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? Row(
               children: [
                 GestureDetector(
-                  onTap: () => Navigator.of(context).pushNamed('/'),
+                  onTap: () => Navigator.pushNamed(context, '/'),
                   child: Image.asset(
                       'assets/alpha${themeManager.isDarkMode ? "_d" : ""}.png',
                       height: 40.0),
                 ),
                 const SizedBox(width: 20),
                 TextButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/information'),
+                    onPressed: () => Navigator.pushNamed(
+                          context,
+                          '/information',
+                        ),
                     child: Text("Learn",
                         style: TextStyle(
                             color: themeManager.isDarkMode
                                 ? Colors.white
                                 : Colors.black))),
                 TextButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/develop'),
+                    onPressed: () => Navigator.pushNamed(context, '/develop'),
                     child: Text("Develop",
                         style: TextStyle(
                             color: themeManager.isDarkMode
                                 ? Colors.white
                                 : Colors.black))),
-                TextButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/network'),
-                    child: Text("Network",
-                        style: TextStyle(
-                            color: themeManager.isDarkMode
-                                ? Colors.white
-                                : Colors.black))),
-                TextButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/explore'),
-                    child: Text("Explore",
-                        style: TextStyle(
-                            color: themeManager.isDarkMode
-                                ? Colors.white
-                                : Colors.black))),
+                // TextButton(
+                //     onPressed: () =>
+                //         Navigator.pushNamed(context, '/network'),
+                //     child: Text("Network",
+                //         style: TextStyle(
+                //             color: themeManager.isDarkMode
+                //                 ? Colors.white
+                //                 : Colors.black))),
+                // TextButton(
+                //     onPressed: () =>
+                //         Navigator.pushNamed(context, '/explore'),
+                //     child: Text("Explore",
+                //         style: TextStyle(
+                //             color: themeManager.isDarkMode
+                //                 ? Colors.white
+                //                 : Colors.black))),
                 // TextButton(
                 //     onPressed: () =>
                 //         Navigator.pushNamed(context, '/contactUsPage'),

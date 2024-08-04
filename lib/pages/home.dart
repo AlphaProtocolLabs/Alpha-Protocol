@@ -6,7 +6,6 @@ import '../widgets/footer.dart';
 import '../widgets/hero.dart';
 import '../widgets/safeguard.dart';
 import '../widgets/snapshot.dart';
-import '../widgets/tradealpha.dart';
 import '../widgets/joinus.dart';
 
 class Home extends StatelessWidget {
@@ -21,7 +20,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final statusBarHeight = MediaQuery.of(context).padding.top;
-    final appBarHeight = kToolbarHeight;
+    const appBarHeight = kToolbarHeight;
     final firstFoldHeight = screenHeight - statusBarHeight - appBarHeight;
 
     return Scaffold(
@@ -38,10 +37,10 @@ class Home extends StatelessWidget {
               pageController: _pageController,
               firstFoldHeight: firstFoldHeight,
             ),
-            Safeguard(),
-            Snapshot(),
-            TradeAlpha(),
-            JoinUs(),
+            const Safeguard(),
+            const Snapshot(),
+            const TradeAlpha(),
+            const JoinUs(),
             const Footer(),
           ],
         ),

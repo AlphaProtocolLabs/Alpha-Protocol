@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class TradeAlpha extends StatelessWidget {
-  const TradeAlpha({Key? key}) : super(key: key);
+  const TradeAlpha({super.key});
 
   @override
   Widget build(BuildContext context) {
     bool isDesktop = MediaQuery.of(context).size.width > 600;
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
 
     // Set different image sizes for mobile and desktop
-    double imageHeight =
-        isDesktop ? screenHeight * 0.4 : screenHeight * 0.3; // Larger on mobile
+    double imageHeight = isDesktop ? 40.h : 30.h; // Larger on mobile
     double imageWidth = imageHeight * 4 / 3; // Maintain 4:3 aspect ratio
 
     // Use a ternary operator to decide between Row (desktop) and Column (mobile)
@@ -65,8 +64,8 @@ class TradeAlpha extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
+        const Padding(
+          padding: EdgeInsets.all(16.0),
           child: Text(
             'ALPHA RUNES\n\nBUY, SELL, AND TRADE BITCOIN INSCRIBED ALPHA RUNES ON LUMINEX',
             style: TextStyle(
@@ -80,10 +79,10 @@ class TradeAlpha extends StatelessWidget {
           onPressed: () {
             // Call to action goes here
           },
-          child: Text('LUMINEX DEX'),
           style: TextButton.styleFrom(
             foregroundColor: Colors.black, // Text Color
           ),
+          child: const Text('LUMINEX DEX'),
         ),
       ],
     );
@@ -91,7 +90,7 @@ class TradeAlpha extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
-    home: Scaffold(body: const TradeAlpha()),
+  runApp(const MaterialApp(
+    home: Scaffold(body: TradeAlpha()),
   ));
 }

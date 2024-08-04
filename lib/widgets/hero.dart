@@ -7,14 +7,17 @@ class HeroWidget extends StatelessWidget {
   final double firstFoldHeight;
 
   const HeroWidget({
-    Key? key,
+    super.key,
     required this.pageController,
     required this.firstFoldHeight,
-  }) : super(key: key);
+  });
 
   Future<void> _openWebsiteInWebView(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url, forceWebView: true, enableJavaScript: true);
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url),
+          mode: LaunchMode.inAppWebView,
+          webViewConfiguration:
+              const WebViewConfiguration(enableJavaScript: true));
     } else {
       throw 'Could not launch $url';
     }
@@ -25,12 +28,14 @@ class HeroWidget extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: firstFoldHeight *
-              0.7, // 70% of the first fold height for the hero image
-          child: Image.asset(
-              'assets/hero_image${themeManager.isDarkMode ? "_d" : ""}.png',
-              fit: BoxFit.cover),
-        ),
+            height: firstFoldHeight *
+                0.7, // 70% of the first fold height for the hero image
+            child: Image(
+              image: AssetImage(
+                'assets/hero_image${themeManager.isDarkMode ? "_d" : ""}.png',
+              ),
+              fit: BoxFit.cover,
+            )),
         Container(
           height: firstFoldHeight *
               0.3, // 30% of the first fold height for the carousel

@@ -10,8 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.6
-  url_launcher: ^6.2.6
+  cupertino_icons: 
+  url_launcher: 
+  sizer:
+  google_fonts:
+  page_transition:
 
 dev_dependencies:
   flutter_test:
