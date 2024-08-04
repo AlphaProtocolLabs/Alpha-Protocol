@@ -2,6 +2,7 @@ import 'package:alpha/pages/alpha_go/widgets/beta_access.dart';
 import 'package:alpha/pages/learn/widgets/fix_together.dart';
 import 'package:alpha/pages/learn/widgets/internet_broken.dart';
 import 'package:alpha/pages/omega_wireless/widgets/omega_widget.dart';
+import 'package:alpha/pages/spectrum/widgets/spectrum_home.dart';
 import 'package:alpha/pages/spectrum/widgets/spectrum_widget.dart';
 import 'package:alpha/widgets/appbar.dart';
 import 'package:alpha/widgets/drawer.dart';
@@ -32,6 +33,7 @@ class _SpectrumScreenState extends State<SpectrumScreen> {
             child: Column(
               children: [
                 SpectrumWidget(),
+                SpectrumHome(),
               ],
             ),
           );
