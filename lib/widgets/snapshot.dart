@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Snapshot extends StatelessWidget {
-  const Snapshot({Key? key}) : super(key: key);
+  const Snapshot({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class Snapshot extends StatelessWidget {
     double verticalSpacing =
         screenSize.height * 0.01; // Reduced vertical spacing
 
-    return Container(
+    return SizedBox(
       height: screenSize.height,
       child: isDesktop
           ? Row(
@@ -25,7 +25,7 @@ class Snapshot extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'NETWORK SNAPSHOT',
                           style: TextStyle(
                             fontSize: 24.0,
@@ -35,14 +35,14 @@ class Snapshot extends StatelessWidget {
                         SizedBox(height: verticalSpacing),
                         ElevatedButton(
                           onPressed: () {},
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 32, vertical: 16),
-                            child: Text('BECOME A NODE'),
-                          ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                             foregroundColor: Colors.white,
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 32, vertical: 16),
+                            child: Text('BECOME A NODE'),
                           ),
                         ),
                       ],
@@ -64,7 +64,7 @@ class Snapshot extends StatelessWidget {
                 mainAxisAlignment:
                     MainAxisAlignment.spaceEvenly, // Evenly distribute space
                 children: [
-                  Text(
+                  const Text(
                     'NETWORK SNAPSHOT',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -75,14 +75,14 @@ class Snapshot extends StatelessWidget {
                   snapshotData(context),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                      child: Text('BECOME A NODE'),
-                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       foregroundColor: Colors.white,
+                    ),
+                    child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                      child: Text('BECOME A NODE'),
                     ),
                   ),
                 ],
@@ -112,7 +112,7 @@ class Snapshot extends StatelessWidget {
           MainAxisAlignment.spaceAround, // Distribute spacing evenly
       children: data.map((item) {
         return Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               vertical: 10.0), // Adjusted padding between elements
           child: Column(
             children: [
@@ -124,10 +124,10 @@ class Snapshot extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: 5), // Reduced space between title and value
+              const SizedBox(height: 5), // Reduced space between title and value
               Text(
                 item['value']!,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 36.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -141,7 +141,7 @@ class Snapshot extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: Scaffold(body: Snapshot()),
   ));
 }

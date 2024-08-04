@@ -2,8 +2,6 @@ import 'package:alpha/widgets/fix_together.dart';
 import 'package:alpha/widgets/internet_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:alpha/widgets/drawer.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:sizer/sizer.dart';
 import '../widgets/appbar.dart';
 import '../widgets/footer.dart';
 
@@ -23,12 +21,12 @@ class Information extends StatelessWidget {
       drawer: const CustomDrawer(),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          return SingleChildScrollView(
+          return const SingleChildScrollView(
             child: Column(
               children: [
                 InternetBrokenWidget(),
                 FixTogetherWidget(),
-                const Footer(),
+                Footer(),
               ],
             ),
           );

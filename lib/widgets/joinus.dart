@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class JoinUs extends StatelessWidget {
-  const JoinUs({Key? key}) : super(key: key);
+  const JoinUs({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey[600], // Set background color to grey 600
-      padding: EdgeInsets.all(16), // Add some padding for all sides
+      padding: const EdgeInsets.all(16), // Add some padding for all sides
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
+          const Text(
             'JOIN THE ALPHA COMMUNITY',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -20,9 +20,9 @@ class JoinUs extends StatelessWidget {
               color: Colors.white, // Enhance text visibility on grey background
             ),
           ),
-          SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          const SizedBox(height: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 32.0),
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'EMAIL',
@@ -35,36 +35,36 @@ class JoinUs extends StatelessWidget {
                   color: Colors.white), // Text color inside the text field
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () {
               // Submit email action goes here
             },
-            child: Text('SUBMIT'),
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: Colors.black, // Text color
             ),
+            child: const Text('SUBMIT'),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
-                icon: Icon(Icons.discord,
+                icon: const Icon(Icons.discord,
                     color: Colors.white), // Example icon with color
                 onPressed: () {
                   // Discord action goes here
                 },
               ),
               IconButton(
-                icon: Icon(Icons.close,
+                icon: const Icon(Icons.close,
                     color: Colors.white), // Example icon with color
                 onPressed: () {
                   // Close action goes here
                 },
               ),
               IconButton(
-                icon: Icon(Icons.send,
+                icon: const Icon(Icons.send,
                     color: Colors.white), // Example icon with color
                 onPressed: () {
                   // Send action goes here
@@ -79,7 +79,7 @@ class JoinUs extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
-    home: Scaffold(body: const JoinUs()),
+  runApp(const MaterialApp(
+    home: Scaffold(body: JoinUs()),
   ));
 }

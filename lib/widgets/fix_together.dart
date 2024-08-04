@@ -1,3 +1,5 @@
+
+import 'package:alpha/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
@@ -7,6 +9,7 @@ class FixTogetherWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = themeManager.themeMode == ThemeMode.dark;
     return Center(
       child: SizedBox(
         width: double.infinity,
@@ -23,86 +26,104 @@ class FixTogetherWidget extends StatelessWidget {
                       fontWeight: FontWeight.w900, fontSize: 12.sp),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image(
-                  image: AssetImage(
-                    "assets/learn_1.png",
-                  ),
-                ),
+              LearnImageWidget(
+                imagePath: isDarkMode
+                    ? "assets/learn_1_dark.png"
+                    : "assets/learn_1.png",
               ),
-              Text(
-                "ENABLING DEVICES TO CONNECT DIRECTLY\nAND EXCHANGE DATA AS PEERS",
-                style: GoogleFonts.cinzel(
-                    fontWeight: FontWeight.w400, fontSize: 8.sp),
-                textAlign: TextAlign.center,
+              const secondaryHeading(
+                text:
+                    "ENABLING DEVICES TO CONNECT DIRECTLY\nAND EXCHANGE DATA AS PEERS",
               ),
-              Text(
-                "PEER TO PEER NETWORKING",
-                style: GoogleFonts.cinzel(
-                    fontWeight: FontWeight.w800, fontSize: 8.sp),
-                textAlign: TextAlign.center,
+              const secondaryHeading(
+                text: "PEER TO PEER NETWORKING",
+                isBold: true,
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image(
-                  image: AssetImage(
-                    "assets/learn_2.png",
-                  ),
-                ),
+              LearnImageWidget(
+                imagePath: isDarkMode
+                    ? "assets/learn_2_dark.png"
+                    : "assets/learn_2.png",
               ),
-              Text(
-                "EXPAND COVERAGE TO COMMON DEVICE TYPES\nIOS. ANDROID. WINDOWS. MAC OS. LINUX",
-                style: GoogleFonts.cinzel(
-                    fontWeight: FontWeight.w400, fontSize: 8.sp),
-                textAlign: TextAlign.center,
+              const secondaryHeading(
+                text:
+                    "EXPAND COVERAGE TO COMMON DEVICE TYPES\nIOS. ANDROID. WINDOWS. MAC OS. LINUX",
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image(
-                  image: AssetImage(
-                    "assets/learn_3.png",
-                  ),
-                ),
+              LearnImageWidget(
+                imagePath: isDarkMode
+                    ? "assets/learn_3_dark.png"
+                    : "assets/learn_3.png",
               ),
-              Text(
-                "TOKENIZED REWARD\nINCENTIVIZE NETWORK PARTICIPATION",
-                style: GoogleFonts.cinzel(
-                    fontWeight: FontWeight.w400, fontSize: 8.sp),
-                textAlign: TextAlign.center,
+              const secondaryHeading(
+                text: "TOKENIZED REWARD\nINCENTIVIZE NETWORK PARTICIPATION",
               ),
-              Padding(
-                  padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                  child: Image(
-                    image: AssetImage(
-                      "assets/learn_4.png",
-                    ),
-                  )),
-              Text(
-                "LOCALIZED MICROGRIDS\nPRIVATE AND PUBLIC USE NETWORKS",
-                style: GoogleFonts.cinzel(
-                    fontWeight: FontWeight.w400, fontSize: 8.sp),
-                textAlign: TextAlign.center,
+              LearnImageWidget(
+                imagePath: isDarkMode
+                    ? "assets/learn_4_dark.png"
+                    : "assets/learn_4.png",
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
-                child: Image(
-                  image: AssetImage(
-                    "assets/learn_5.png",
-                  ),
-                ),
+              const secondaryHeading(
+                text: "LOCALIZED MICROGRIDS\nPRIVATE AND PUBLIC USE NETWORKS",
               ),
-              Text(
-                "CONNECT LOCALIZED MICROGRIDS\nGLOBAL DECENTRALIZED NETWORK",
-                style: GoogleFonts.cinzel(
-                    fontWeight: FontWeight.w400, fontSize: 8.sp),
-                textAlign: TextAlign.center,
+              LearnImageWidget(
+                imagePath: isDarkMode
+                    ? "assets/learn_5_dark.png"
+                    : "assets/learn_5.png",
+              ),
+              const secondaryHeading(
+                text:
+                    "CONNECT LOCALIZED MICROGRIDS\nGLOBAL DECENTRALIZED NETWORK",
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 2.0.sp),
               ),
               // Add more content here as needed
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class secondaryHeading extends StatelessWidget {
+  const secondaryHeading({
+    super.key,
+    this.isBold = false,
+    required this.text,
+  });
+  final bool isBold;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.cinzel(
+          fontWeight: isBold ? FontWeight.w800 : FontWeight.w400,
+          fontSize: 8.sp),
+      textAlign: TextAlign.center,
+    );
+  }
+}
+
+class LearnImageWidget extends StatelessWidget {
+  const LearnImageWidget({
+    super.key,
+    required this.imagePath,
+  });
+  final String imagePath;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 2.0.sp, bottom: 2.0.sp),
+      child: SizedBox(
+        height: 20.h,
+        width: 15.w,
+        child: Image(
+          fit: BoxFit.contain,
+          image: AssetImage(
+            imagePath,
           ),
         ),
       ),

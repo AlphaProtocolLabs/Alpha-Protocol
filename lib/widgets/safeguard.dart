@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Safeguard extends StatelessWidget {
-  const Safeguard({Key? key}) : super(key: key);
+  const Safeguard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class Safeguard extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          Text(
+          const Text(
             'Safeguard your Connection',
             style: TextStyle(
               color: Colors.black,
@@ -20,7 +20,7 @@ class Safeguard extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           if (isDesktop)
             ConstrainedBox(
               constraints:
@@ -73,13 +73,13 @@ class Safeguard extends StatelessWidget {
 class InfoContainer extends StatelessWidget {
   final Map<String, String> item;
 
-  const InfoContainer({Key? key, required this.item}) : super(key: key);
+  const InfoContainer({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8),
-      padding: EdgeInsets.all(16),
+      margin: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.grey[600],
         borderRadius: BorderRadius.circular(12),
@@ -90,22 +90,22 @@ class InfoContainer extends StatelessWidget {
         children: [
           Text(
             item['title']!,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16,
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           ElevatedButton(
             onPressed: () {
               // Button press handler
             },
-            child: Text(item['buttonText']!),
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: Colors.grey[450],
             ),
+            child: Text(item['buttonText']!),
           ),
         ],
       ),

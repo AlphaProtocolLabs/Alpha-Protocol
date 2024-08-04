@@ -24,13 +24,13 @@ class Network extends StatelessWidget {
               constraints: BoxConstraints(
                 minHeight: constraints.maxHeight,
               ),
-              child: IntrinsicHeight(
+              child: const IntrinsicHeight(
                 child: Column(
                   children: <Widget>[
                     Expanded(
                       child: Column(
                         // Main content goes here
-                        children: const [
+                        children: [
                           Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text('NETWORK', style: TextStyle(fontSize: 24)),
@@ -39,7 +39,7 @@ class Network extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Footer(), // Footer will be pushed to the bottom
+                    Footer(), // Footer will be pushed to the bottom
                   ],
                 ),
               ),

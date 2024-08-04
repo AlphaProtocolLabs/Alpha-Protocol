@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TradeAlpha extends StatelessWidget {
-  const TradeAlpha({Key? key}) : super(key: key);
+  const TradeAlpha({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +65,8 @@ class TradeAlpha extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
+        const Padding(
+          padding: EdgeInsets.all(16.0),
           child: Text(
             'ALPHA RUNES\n\nBUY, SELL, AND TRADE BITCOIN INSCRIBED ALPHA RUNES ON LUMINEX',
             style: TextStyle(
@@ -80,10 +80,10 @@ class TradeAlpha extends StatelessWidget {
           onPressed: () {
             // Call to action goes here
           },
-          child: Text('LUMINEX DEX'),
           style: TextButton.styleFrom(
             foregroundColor: Colors.black, // Text Color
           ),
+          child: const Text('LUMINEX DEX'),
         ),
       ],
     );
@@ -91,7 +91,7 @@ class TradeAlpha extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
-    home: Scaffold(body: const TradeAlpha()),
+  runApp(const MaterialApp(
+    home: Scaffold(body: TradeAlpha()),
   ));
 }
