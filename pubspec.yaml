@@ -15,7 +15,7 @@ dependencies:
   sizer:
   google_fonts:
   page_transition:
-
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,10 +1,26 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:alpha/theme/theme_manager.dart';
 
-class Footer extends StatelessWidget {
-  const Footer({
-    super.key,
-  });
+class Footer extends StatefulWidget {
+  const Footer({super.key});
+
+  @override
+  State<Footer> createState() => _FooterState();
+}
+
+class _FooterState extends State<Footer> {
+  void _themeChanged() {
+    log("Theme changed");
+    setState(() {}); // Trigger a rebuild if necessary
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    themeManager.addListener(_themeChanged);
+  }
 
   @override
   Widget build(BuildContext context) {
