@@ -18,7 +18,8 @@ class BuildFutureWidget extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(3.0.sp),
               child: Text(
-                'THE INTERNET IS BROKEN',
+                textAlign: TextAlign.center,
+                'BUILDING THE\nFUTURE',
                 style: GoogleFonts.cinzel(
                     fontWeight: FontWeight.w900, fontSize: 11.sp),
               ),
@@ -26,7 +27,7 @@ class BuildFutureWidget extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(3.0.sp),
               child: Text(
-                "TODAY THE WORLD WIDE WEB IS\nCONTROLLED BY AN EXTREMELY\nCONCENTRATED GROUP OF\nCORPORATIONS WHO USE THEIR\nMONOPOLIZATION OF ACCESS TO\nSENSOR, SERVILE, AND PROFIT FROM\nTHE INDIVIDUALS WHO USE IT.",
+                "DECENTRALIZED INTERNET IS THE\nNEXT EVOLUTION OF THE WORLD\nWIDE WEB.",
                 style: GoogleFonts.cinzel(
                     fontWeight: FontWeight.w400, fontSize: 7.sp),
                 textAlign: TextAlign.center,

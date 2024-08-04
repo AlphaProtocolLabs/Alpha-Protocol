@@ -20,7 +20,6 @@ class _FixTogetherWidgetState extends State<FixTogetherWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     themeManager.addListener(_themeChanged);
   }
