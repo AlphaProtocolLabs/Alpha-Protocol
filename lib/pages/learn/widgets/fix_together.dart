@@ -1,14 +1,32 @@
+import 'dart:developer';
+
 import 'package:alpha/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
-class FixTogetherWidget extends StatelessWidget {
+class FixTogetherWidget extends StatefulWidget {
   const FixTogetherWidget({super.key});
 
   @override
+  State<FixTogetherWidget> createState() => _FixTogetherWidgetState();
+}
+
+class _FixTogetherWidgetState extends State<FixTogetherWidget> {
+  void _themeChanged() {
+    log("Theme changed");
+    setState(() {}); // Trigger a rebuild if necessary
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    themeManager.addListener(_themeChanged);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    bool isDarkMode = themeManager.themeMode == ThemeMode.dark;
     return Center(
       child: SizedBox(
         width: double.infinity,
@@ -26,7 +44,7 @@ class FixTogetherWidget extends StatelessWidget {
                 ),
               ),
               LearnImageWidget(
-                imagePath: isDarkMode
+                imagePath: themeManager.isDarkMode
                     ? "assets/learn_1_dark.png"
                     : "assets/learn_1.png",
               ),
@@ -39,7 +57,7 @@ class FixTogetherWidget extends StatelessWidget {
                 isBold: true,
               ),
               LearnImageWidget(
-                imagePath: isDarkMode
+                imagePath: themeManager.isDarkMode
                     ? "assets/learn_2_dark.png"
                     : "assets/learn_2.png",
               ),
@@ -48,7 +66,7 @@ class FixTogetherWidget extends StatelessWidget {
                     "EXPAND COVERAGE TO COMMON DEVICE TYPES\nIOS. ANDROID. WINDOWS. MAC OS. LINUX",
               ),
               LearnImageWidget(
-                imagePath: isDarkMode
+                imagePath: themeManager.isDarkMode
                     ? "assets/learn_3_dark.png"
                     : "assets/learn_3.png",
               ),
@@ -56,7 +74,7 @@ class FixTogetherWidget extends StatelessWidget {
                 text: "TOKENIZED REWARD\nINCENTIVIZE NETWORK PARTICIPATION",
               ),
               LearnImageWidget(
-                imagePath: isDarkMode
+                imagePath: themeManager.isDarkMode
                     ? "assets/learn_4_dark.png"
                     : "assets/learn_4.png",
               ),
@@ -64,7 +82,7 @@ class FixTogetherWidget extends StatelessWidget {
                 text: "LOCALIZED MICROGRIDS\nPRIVATE AND PUBLIC USE NETWORKS",
               ),
               LearnImageWidget(
-                imagePath: isDarkMode
+                imagePath: themeManager.isDarkMode
                     ? "assets/learn_5_dark.png"
                     : "assets/learn_5.png",
               ),

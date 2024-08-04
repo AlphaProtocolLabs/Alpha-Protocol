@@ -27,8 +27,8 @@ class CustomDrawer extends StatelessWidget {
             const SizedBox(height: 20),
             _drawerItem(context, 'Learn', '/information'),
             _drawerItem(context, 'Develop', '/develop'),
-            _drawerItem(context, 'Network', '/network'),
-            _drawerItem(context, 'Explore', '/explore'),
+            // _drawerItem(context, 'Network', '/network'),
+            // _drawerItem(context, 'Explore', '/explore'),
             //_drawerItem(context, 'Careers', '/careersPage'),
             //_drawerItem(context, 'Contact', '/contactUsPage'),
             const Spacer(), // Use Spacer to push everything up

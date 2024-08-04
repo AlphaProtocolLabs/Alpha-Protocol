@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:alpha/widgets/drawer.dart';
-import '../widgets/appbar.dart';
-import '../widgets/footer.dart';
+import '../../../widgets/appbar.dart';
+import '../../../widgets/footer.dart';
 
 class Develop extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();

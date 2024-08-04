@@ -1,13 +1,31 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:alpha/theme/theme_manager.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  const CustomAppBar({super.key, required this.scaffoldKey});
   final GlobalKey<ScaffoldState> scaffoldKey;
 
-  const CustomAppBar({
-    super.key,
-    required this.scaffoldKey,
-  });
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+  @override
+  Size get preferredSize => const Size.fromHeight(
+      kToolbarHeight + 2.0); // Adjusted for the underline height
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  void _themeChanged() {
+    log("Theme changed");
+    setState(() {}); // Trigger a rebuild if necessary
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    themeManager.addListener(_themeChanged);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: Icon(Icons.menu,
             color: themeManager.isDarkMode ? Colors.white : Colors.black),
-        onPressed: () => scaffoldKey.currentState?.openDrawer(),
+        onPressed: () => widget.scaffoldKey.currentState?.openDrawer(),
       ),
       title: isWideScreen
           ? Row(
@@ -69,22 +87,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 //             color: themeManager.isDarkMode
                 //                 ? Colors.white
                 //                 : Colors.black))),
-                // TextButton(
-                //     onPressed: () =>
-                //         Navigator.pushNamed(context, '/contactUsPage'),
-                //     child: Text("Contact Us",
-                //         style: TextStyle(
-                //             color: themeManager.isDarkMode
-                //                 ? Colors.white
-                //                 : Colors.black))),
-                // TextButton(
-                //     onPressed: () =>
-                //         Navigator.pushNamed(context, '/careersPage'),
-                //     child: Text("Careers",
-                //         style: TextStyle(
-                //             color: themeManager.isDarkMode
-                //                 ? Colors.white
-                //                 : Colors.black))),
               ],
             )
           : GestureDetector(
@@ -116,8 +118,4 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(
-      kToolbarHeight + 2.0); // Adjusted for the underline height
 }

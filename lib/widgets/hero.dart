@@ -1,16 +1,34 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:alpha/theme/theme_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HeroWidget extends StatelessWidget {
-  final PageController pageController;
-  final double firstFoldHeight;
-
+class HeroWidget extends StatefulWidget {
   const HeroWidget({
     super.key,
     required this.pageController,
     required this.firstFoldHeight,
   });
+  final PageController pageController;
+  final double firstFoldHeight;
+
+  @override
+  State<HeroWidget> createState() => _HeroWidgetState();
+}
+
+class _HeroWidgetState extends State<HeroWidget> {
+  void _themeChanged() {
+    log("Theme changed");
+    setState(() {}); // Trigger a rebuild if necessary
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    themeManager.addListener(_themeChanged);
+  }
 
   Future<void> _openWebsiteInWebView(String url) async {
     if (await canLaunchUrl(Uri.parse(url))) {
@@ -28,7 +46,7 @@ class HeroWidget extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-            height: firstFoldHeight *
+            height: widget.firstFoldHeight *
                 0.7, // 70% of the first fold height for the hero image
             child: Image(
               image: AssetImage(
@@ -37,11 +55,11 @@ class HeroWidget extends StatelessWidget {
               fit: BoxFit.cover,
             )),
         Container(
-          height: firstFoldHeight *
+          height: widget.firstFoldHeight *
               0.3, // 30% of the first fold height for the carousel
           color: themeManager.isDarkMode ? Colors.black : Colors.white,
           child: PageView.builder(
-            controller: pageController,
+            controller: widget.pageController,
             itemCount: 10000, // Consider reducing this for practicality
             itemBuilder: (context, index) {
               final logoIndex = index % 3;
