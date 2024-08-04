@@ -30,9 +30,6 @@ class _AlphaGoScreenState extends State<AlphaGoScreen> {
             child: Column(
               children: [
                 BetaAccessWidget(),
-                InternetBrokenWidget(),
-                FixTogetherWidget(),
-                Footer(),
               ],
             ),
           );

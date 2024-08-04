@@ -14,7 +14,7 @@ class DecentralizedInfoWidget extends StatefulWidget {
 }
 
 class _DecentralizedInfoWidgetState extends State<DecentralizedInfoWidget> {
-  Color boxColor = themeManager.themeMode == ThemeMode.dark
+  Color boxColor = themeManager.isDarkMode
       ? const Color.fromARGB(121, 34, 33, 33)
       : const Color.fromRGBO(232, 228, 228, 1.0);
   void _themeChanged() {
