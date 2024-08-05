@@ -69,13 +69,19 @@ class _HeroWidgetState extends State<HeroWidget> {
                       width: 15.w,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.black, width: 2)),
+                          border: Border.all(
+                              color: themeManager.isDarkMode
+                                  ? Colors.white
+                                  : Colors.black,
+                              width: 2)),
                       child: Text(
                         "ENTER",
                         style: GoogleFonts.cinzel(
                             fontWeight: FontWeight.w400,
                             fontSize: 7.sp,
-                            color: Colors.black),
+                            color: themeManager.isDarkMode
+                                ? Colors.white
+                                : Colors.black),
                         textAlign: TextAlign.center,
                       ),
                     )))),

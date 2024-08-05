@@ -1,120 +1,146 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-class Safeguard extends StatelessWidget {
+import 'package:alpha/theme/theme_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
+
+class Safeguard extends StatefulWidget {
   const Safeguard({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    bool isDesktop = MediaQuery.of(context).size.width > 600;
-
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          const Text(
-            'Safeguard your Connection',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 20),
-          if (isDesktop)
-            ConstrainedBox(
-              constraints:
-                  BoxConstraints(maxWidth: MediaQuery.of(context).size.width),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: infoContainers(isDesktop: isDesktop),
-              ),
-            )
-          else
-            ...infoContainers(isDesktop: isDesktop),
-        ],
-      ),
-    );
-  }
-
-  List<Widget> infoContainers({required bool isDesktop}) {
-    List<Map<String, String>> data = [
-      {
-        'title':
-            'Download and Install the Alpha Protocol Network (APN) to your Device',
-        'buttonText': 'Learn More',
-      },
-      {
-        'title':
-            'Configure your Connection\nHost your own Private Network or Connect to Alpha Protocols Decentralized Network',
-        'buttonText': 'Learn More',
-      },
-      {
-        'title':
-            'Secure your Systems and Earn Rewards for your Contributions to the Network\nENJOY!',
-        'buttonText': 'Learn More',
-      },
-    ];
-
-    if (isDesktop) {
-      return data.map((item) {
-        return Flexible(
-          child: InfoContainer(item: item),
-        );
-      }).toList();
-    } else {
-      return data.map((item) {
-        return InfoContainer(item: item);
-      }).toList();
-    }
-  }
+  State<Safeguard> createState() => _SafeguardState();
 }
 
-class InfoContainer extends StatelessWidget {
-  final Map<String, String> item;
+class _SafeguardState extends State<Safeguard> {
+  Color boxColor = themeManager.isDarkMode
+      ? const Color.fromARGB(121, 34, 33, 33)
+      : const Color.fromRGBO(232, 228, 228, 1.0);
+  void _themeChanged() {
+    log("Theme changed");
+    setState(() {
+      themeManager.themeMode == ThemeMode.dark
+          ? boxColor = const Color.fromARGB(121, 34, 33, 33)
+          : boxColor = const Color.fromRGBO(232, 228, 228, 1.0);
+    }); // Trigger a rebuild if necessary
+  }
 
-  const InfoContainer({super.key, required this.item});
+  @override
+  void initState() {
+    super.initState();
+    themeManager.addListener(_themeChanged);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.grey[600],
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            item['title']!,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 12),
-          ElevatedButton(
-            onPressed: () {
-              // Button press handler
-            },
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.grey[450],
-            ),
-            child: Text(item['buttonText']!),
-          ),
-        ],
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.all(2.0.sp),
+        child: SizedBox(
+            width: double.infinity,
+            // height: 100.h,
+            child: Column(
+              children: [
+                Text(
+                  "SAFEGUARD YOUR",
+                  style: GoogleFonts.cinzel(
+                      fontWeight: FontWeight.w400, fontSize: 6.sp),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  textAlign: TextAlign.center,
+                  "C O N N E C T I O N",
+                  style: GoogleFonts.cinzel(
+                      fontWeight: FontWeight.w900, fontSize: 8.sp),
+                ),
+                ConnectionWidget(
+                  title: "",
+                  subtitle:
+                      "DOWNLOAD AND INSTALL THE\nALPHA PROTOCOL NETWORK (APN)\nTO YOUR DEVICE",
+                  boxColor: boxColor,
+                  isIcons: true,
+                ),
+                ConnectionWidget(
+                  title: "CONFIGURE YOUR CONNECTION",
+                  subtitle:
+                      "HOST YOUR OWN PRIVATE NETWORK\nOR\nCONNECT TO ALPHA PROTOCOLS\nDECENTRALIZED NETWORK",
+                  boxColor: boxColor,
+                ),
+                ConnectionWidget(
+                  title:
+                      "SECURE YOUR SYSTEMS\nAND\nEARN REWARDS FOR YOUR\nCONTRIBUTIONS TO THE NETWORK",
+                  subtitle: "ENJOY!",
+                  boxColor: boxColor,
+                  isFlipped: true,
+                )
+              ],
+            )),
       ),
     );
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(backgroundColor: Colors.grey[600], body: const Safeguard()),
-  ));
+class ConnectionWidget extends StatelessWidget {
+  const ConnectionWidget({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.boxColor,
+    this.isIcons = false,
+    this.isFlipped = false,
+  });
+  final String title;
+  final String subtitle;
+  final Color boxColor;
+  final bool isIcons;
+  final bool isFlipped;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 7.0.sp, top: 3.0.sp),
+      child: Container(
+          height: 45.h,
+          width: 50.w,
+          decoration: BoxDecoration(
+            color: boxColor,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              if (!isIcons)
+                Text(
+                  textAlign: TextAlign.center,
+                  title,
+                  style: GoogleFonts.cinzel(
+                      fontWeight: isFlipped ? FontWeight.w400 : FontWeight.w900,
+                      fontSize: 8.sp),
+                ),
+              Text(
+                subtitle,
+                style: GoogleFonts.cinzel(
+                    fontWeight: isFlipped ? FontWeight.w900 : FontWeight.w400,
+                    fontSize: 6.sp),
+                textAlign: TextAlign.center,
+              ),
+              if (isIcons)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(
+                      Icons.apple,
+                      size: 15.sp,
+                    ),
+                    Icon(
+                      Icons.window,
+                      size: 15.sp,
+                    ),
+                    Icon(Icons.android, size: 15.sp),
+                  ],
+                )
+            ],
+          )),
+    );
+  }
 }

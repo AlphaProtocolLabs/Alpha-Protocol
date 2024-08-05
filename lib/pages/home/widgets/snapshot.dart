@@ -1,7 +1,28 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-class Snapshot extends StatelessWidget {
+import 'package:alpha/theme/theme_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
+
+class Snapshot extends StatefulWidget {
   const Snapshot({super.key});
+
+  @override
+  State<Snapshot> createState() => _SnapshotState();
+}
+
+class _SnapshotState extends State<Snapshot> {
+  void _themeChanged() {
+    log("Theme changed");
+    setState(() {}); // Trigger a rebuild if necessary
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    themeManager.addListener(_themeChanged);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,24 +46,34 @@ class Snapshot extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
-                          'NETWORK SNAPSHOT',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        Text(
+                          textAlign: TextAlign.center,
+                          "NETWORK SNAPSHOT",
+                          style: GoogleFonts.cinzel(
+                              fontWeight: FontWeight.w900, fontSize: 8.sp),
                         ),
                         SizedBox(height: verticalSpacing),
-                        ElevatedButton(
+                        TextButton(
                           onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 32, vertical: 16),
-                            child: Text('BECOME A NODE'),
+                          child: Container(
+                            width: 20.w,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: themeManager.isDarkMode
+                                      ? Colors.white
+                                      : Colors.black),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              "BECOME A NODE",
+                              style: GoogleFonts.cinzel(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 6.sp,
+                                  color: themeManager.isDarkMode
+                                      ? Colors.white
+                                      : Colors.black),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ],
@@ -73,16 +104,27 @@ class Snapshot extends StatelessWidget {
                     ),
                   ),
                   snapshotData(context),
-                  ElevatedButton(
+                  TextButton(
                     onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      foregroundColor: Colors.white,
-                    ),
-                    child: const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                      child: Text('BECOME A NODE'),
+                    child: Container(
+                      width: 20.w,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: themeManager.isDarkMode
+                                ? Colors.white
+                                : Colors.black),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        "BECOME A NODE",
+                        style: GoogleFonts.cinzel(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 6.sp,
+                            color: themeManager.isDarkMode
+                                ? Colors.white
+                                : Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ],
@@ -118,19 +160,16 @@ class Snapshot extends StatelessWidget {
             children: [
               Text(
                 item['title']!,
-                style: TextStyle(
-                  color: Colors.grey[800],
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: GoogleFonts.cinzel(
+                    fontWeight: FontWeight.w400, fontSize: 6.sp),
               ),
-              const SizedBox(height: 5), // Reduced space between title and value
+              const SizedBox(
+                  height: 5), // Reduced space between title and value
               Text(
                 item['value']!,
-                style: const TextStyle(
-                  fontSize: 36.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: GoogleFonts.cinzel(
+                    fontWeight: FontWeight.w900, fontSize: 8.sp),
+                textAlign: TextAlign.center,
               ),
             ],
           ),
@@ -138,10 +177,4 @@ class Snapshot extends StatelessWidget {
       }).toList(),
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    home: Scaffold(body: Snapshot()),
-  ));
 }

@@ -1,8 +1,28 @@
+import 'dart:developer';
+
+import 'package:alpha/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
-class TradeAlpha extends StatelessWidget {
+class TradeAlpha extends StatefulWidget {
   const TradeAlpha({super.key});
+
+  @override
+  State<TradeAlpha> createState() => _TradeAlphaState();
+}
+
+class _TradeAlphaState extends State<TradeAlpha> {
+  void _themeChanged() {
+    log("Theme changed");
+    setState(() {}); // Trigger a rebuild if necessary
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    themeManager.addListener(_themeChanged);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,33 +84,64 @@ class TradeAlpha extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text(
-            'ALPHA RUNES\n\nBUY, SELL, AND TRADE BITCOIN INSCRIBED ALPHA RUNES ON LUMINEX',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-            textAlign: TextAlign.center,
+          child: Column(
+            children: [
+              Text(
+                'ALPHA RUNES',
+                style: GoogleFonts.cinzel(
+                    fontWeight: FontWeight.w900, fontSize: 8.sp),
+                textAlign: TextAlign.center,
+              ),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  style: GoogleFonts.cinzel(
+                    fontSize: 6.sp,
+                    color:
+                        themeManager.isDarkMode ? Colors.white : Colors.black,
+                  ),
+                  children: const <TextSpan>[
+                    TextSpan(
+                        text: 'BUY, SELL, AND TRADE BITCOIN INSCRIBED',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        )),
+                    TextSpan(
+                        text: ' ALPHA RUNES ',
+                        style: TextStyle(fontWeight: FontWeight.w800)),
+                    TextSpan(
+                        text: 'ON LUMINEX',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        )),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
         TextButton(
-          onPressed: () {
-            // Call to action goes here
-          },
-          style: TextButton.styleFrom(
-            foregroundColor: Colors.black, // Text Color
+          onPressed: () {},
+          child: Container(
+            width: 20.w,
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: themeManager.isDarkMode ? Colors.white : Colors.black),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Text(
+              "LUMINEX DEX",
+              style: GoogleFonts.cinzel(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 6.sp,
+                  color: themeManager.isDarkMode ? Colors.white : Colors.black),
+              textAlign: TextAlign.center,
+            ),
           ),
-          child: const Text('LUMINEX DEX'),
         ),
       ],
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    home: Scaffold(body: TradeAlpha()),
-  ));
 }
