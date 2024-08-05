@@ -1,7 +1,28 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-class JoinUs extends StatelessWidget {
+import 'package:alpha/theme/theme_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
+
+class JoinUs extends StatefulWidget {
   const JoinUs({super.key});
+
+  @override
+  State<JoinUs> createState() => _JoinUsState();
+}
+
+class _JoinUsState extends State<JoinUs> {
+  void _themeChanged() {
+    log("Theme changed");
+    setState(() {}); // Trigger a rebuild if necessary
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    themeManager.addListener(_themeChanged);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -9,30 +30,49 @@ class JoinUs extends StatelessWidget {
       color: Colors.grey[600], // Set background color to grey 600
       padding: const EdgeInsets.all(16), // Add some padding for all sides
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             'JOIN THE ALPHA COMMUNITY',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Colors.white, // Enhance text visibility on grey background
-            ),
+            style: GoogleFonts.cinzel(
+                fontWeight: FontWeight.w400,
+                fontSize: 6.sp,
+                color: themeManager.isDarkMode ? Colors.white : Colors.black),
           ),
           const SizedBox(height: 16),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.0),
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'EMAIL',
-                border: OutlineInputBorder(),
-                labelStyle: TextStyle(
-                  color: Colors.white, // For better visibility
-                ),
+                disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: themeManager.isDarkMode
+                            ? Colors.white
+                            : Colors.black)),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: themeManager.isDarkMode
+                            ? Colors.white
+                            : Colors.black)),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: themeManager.isDarkMode
+                            ? Colors.white
+                            : Colors.black)),
+                labelStyle: GoogleFonts.cinzel(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 4.sp,
+                    color:
+                        themeManager.isDarkMode ? Colors.white : Colors.black),
               ),
-              style: TextStyle(
-                  color: Colors.white), // Text color inside the text field
+              style: GoogleFonts.cinzel(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 4.sp,
+                  color: themeManager.isDarkMode
+                      ? Colors.white
+                      : Colors.black), // Text color inside the text field
             ),
           ),
           const SizedBox(height: 16),
@@ -41,10 +81,17 @@ class JoinUs extends StatelessWidget {
               // Submit email action goes here
             },
             style: ElevatedButton.styleFrom(
+              maximumSize: Size(30.w, 10.h),
               foregroundColor: Colors.white,
               backgroundColor: Colors.black, // Text color
             ),
-            child: const Text('SUBMIT'),
+            child: Text(
+              'SUBMIT',
+              style: GoogleFonts.cinzel(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 4.sp,
+                  color: Colors.white),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -76,10 +123,4 @@ class JoinUs extends StatelessWidget {
       ),
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    home: Scaffold(body: JoinUs()),
-  ));
 }
