@@ -12,8 +12,21 @@
   --ss-omega: #f97316;    /* Orange */
   --ss-vibertas: #eab308; /* Yellow */
   --ss-vibe: #22c55e;     /* Green */
-  --ss-pythia: #3b82f6;   /* Blue */
+  --ss-vibeland: #3b82f6; /* Blue */
   --ss-spectrum: #8b5cf6; /* Purple */
+  --ss-pythia: #6366f1;   /* Indigo */
+
+  /* Pythia AI - Indigo */
+  --pythia-primary: #6366f1;
+  --pythia-accent: #4f46e5;
+  --pythia-light: #818cf8;
+  --pythia-dark: #4338ca;
+
+  /* VIBELAND - Blue */
+  --vibeland-primary: #3b82f6;
+  --vibeland-accent: #2563eb;
+  --vibeland-light: #60a5fa;
+  --vibeland-dark: #1d4ed8;
 
   /* Sovereign Stack Gold */
   --gold: #C9A227;

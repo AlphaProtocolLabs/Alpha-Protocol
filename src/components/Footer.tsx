@@ -2,11 +2,12 @@ import Link from "next/link";
 
 const ecosystemProjects = [
   { id: "alpha", name: "Alpha Protocol", url: "#", color: "#dc2626", current: true },
-  { id: "omega", name: "Omega Wireless", url: "https://omega-wireless.vercel.app", color: "#f97316" },
-  { id: "vibertas", name: "Vibertas", url: "https://vibertas-os.vercel.app", color: "#eab308" },
-  { id: "vibe", name: "VIBE Token", url: "https://vibe-token.vercel.app", color: "#22c55e" },
-  { id: "pythia", name: "Pythia AI", url: "https://pythia-ai-web.vercel.app", color: "#3b82f6" },
-  { id: "spectrum", name: "Spectrum Galactic", url: "https://spectrum-galactic.vercel.app", color: "#8b5cf6" },
+  { id: "omega", name: "Omega Wireless", url: "https://omegawireless.xyz", color: "#f97316" },
+  { id: "vibertas", name: "Vibertas", url: "https://vibertas.com", color: "#eab308" },
+  { id: "vibe", name: "VIBE Token", url: "https://vibetoken.xyz", color: "#22c55e" },
+  { id: "vibeland", name: "VIBELAND", url: "https://vibeland.com", color: "#3b82f6" },
+  { id: "spectrum", name: "Spectrum Galactic", url: "https://spectrumgalactic.xyz", color: "#8b5cf6" },
+  { id: "pythia", name: "Pythia AI", url: "https://pythia-ai.xyz", color: "#6366f1" },
 ];
 
 export default function Footer() {
